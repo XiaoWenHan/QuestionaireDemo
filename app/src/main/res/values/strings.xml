@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">QuestionaireDemo</string>
+
+    <string name="activity_launcher_create_btn">创建问卷</string>
+
+    <string name="activity_launcher_view_btn">查看问卷</string>
+</resources>
