@@ -15,12 +15,6 @@
             android:name=".QuestionaireActivity"
             android:screenOrientation="portrait"
             >
-
-        </activity>
-        <activity
-            android:name=".LauncherActivity"
-            android:screenOrientation="portrait"
-            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

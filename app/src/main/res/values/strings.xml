@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">QuestionaireDemo</string>
 
-    <string name="activity_launcher_create_btn">创建问卷</string>
+    <string name="activity_questionaire_view_title">查看问卷</string>
 
-    <string name="activity_launcher_view_btn">查看问卷</string>
+    <string name="activity_questionaire_input_title">填写问卷</string>
+
+    <string name="activity_questionaire_create_title">创建问卷</string>
+
+    <string name="activity_questionaire_confirm_detail_title">阅读详情</string>
+
+    <string name="activity_questionaire_essay_detail_title">作答详情</string>
+
+    <string name="fragment_create_questionaire_title_tv">问卷标题</string>
+
 </resources>

@@ -64,10 +64,13 @@ public class QuestionaireActivity extends AppCompatActivity {
         fragmentManager = getFragmentManager();
         if (getIntent().getIntExtra(INTENT_LAUNCH_TYPE, -1) == INTENT_LAUNCH_TYPE_CREATE) {
             jumpToCreateFragment();
+            return;
         }
         if (getIntent().getIntExtra(INTENT_LAUNCH_TYPE, -1) == INTENT_LAUNCH_TYPE_VIEW) {
             jumpToViewFragment();
+            return;
         }
+        jumpToCreateFragment();
     }
 
     /**
@@ -82,6 +85,7 @@ public class QuestionaireActivity extends AppCompatActivity {
             mQuestionaireCreateFragment);
         transaction.commit();
         currentPos = POS_CREATE;
+        setActionBarTitle(R.string.activity_questionaire_create_title);
     }
 
     /**
@@ -96,6 +100,7 @@ public class QuestionaireActivity extends AppCompatActivity {
             mConfirmDetailListFragment);
         transaction.commit();
         currentPos = POS_CONFIRM_LIST;
+        setActionBarTitle(R.string.activity_questionaire_confirm_detail_title);
     }
 
 
@@ -111,6 +116,7 @@ public class QuestionaireActivity extends AppCompatActivity {
             mEssayViewDetailListFragment);
         transaction.commit();
         currentPos = POS_ESSAY_LIST;
+        setActionBarTitle(R.string.activity_questionaire_essay_detail_title);
     }
 
     /**
@@ -125,6 +131,7 @@ public class QuestionaireActivity extends AppCompatActivity {
             mQuestionaireViewFragment);
         transaction.commit();
         currentPos = POS_VIEW;
+        setActionBarTitle(R.string.activity_questionaire_view_title);
     }
 
     /**
@@ -139,6 +146,12 @@ public class QuestionaireActivity extends AppCompatActivity {
             mQuestionaireInputFragment);
         transaction.commit();
         currentPos = POS_VIEW;
+        setActionBarTitle(R.string.activity_questionaire_input_title);
+    }
+
+    //设置标题栏文本
+    private void setActionBarTitle(int resId) {
+        getSupportActionBar().setTitle(resId);
     }
 
     @Override
