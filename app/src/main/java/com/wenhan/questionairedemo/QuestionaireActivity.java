@@ -11,6 +11,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 
 public class QuestionaireActivity extends AppCompatActivity {
 
@@ -157,15 +158,22 @@ public class QuestionaireActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            switch (currentPos) {
-                case POS_CONFIRM_LIST:
-                case POS_ESSAY_LIST:
-                    jumpToViewFragment();
-                    break;
-                default:
-                    return super.onKeyDown(keyCode, event);
+            //如果创建问卷的子菜单被打开，先收起
+            if (mQuestionaireCreateFragment != null
+                && mQuestionaireCreateFragment.getSubMenuStatus() == View.VISIBLE) {
+                mQuestionaireCreateFragment.hideSubMenuButton();
+                return true;
+            } else {
+                switch (currentPos) {
+                    case POS_CONFIRM_LIST:
+                    case POS_ESSAY_LIST:
+                        jumpToViewFragment();
+                        break;
+                    default:
+                        return super.onKeyDown(keyCode, event);
+                }
+                return true;
             }
-            return true;
         }
         return super.onKeyDown(keyCode, event);
     }

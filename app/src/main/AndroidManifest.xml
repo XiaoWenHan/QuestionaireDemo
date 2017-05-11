@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
+            android:windowSoftInputMode="adjustNothing"
             android:name=".QuestionaireActivity"
             android:screenOrientation="portrait"
             >

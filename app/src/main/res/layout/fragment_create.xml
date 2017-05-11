@@ -6,41 +6,133 @@
     >
 
     <ScrollView
+        android:id="@+id/fragment_create_questionaire_content_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
+        <!-- 问卷内容 -->
         <LinearLayout
+            android:id="@+id/fragment_create_questionaire_content_ll"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
 
             <!-- 问卷标题 -->
-            <TextView
-                style="@android:style/TextAppearance.DeviceDefault.Large"
-                android:text="@string/fragment_create_questionaire_title_tv"
+            <EditText
+                android:id="@+id/fragment_create_questionaire_title_et"
+                android:hint="@string/fragment_create_questionaire_title_hint"
+                android:inputType="textNoSuggestions"
+                android:scrollHorizontally="true"
+                android:maxLines="1"
                 android:layout_width="match_parent"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 />
 
-            <!-- 填写问卷内容 -->
-
-
+            <!-- 问卷正文 -->
+            <EditText
+                android:id="@+id/fragment_create_questionaire_content_et"
+                android:padding="5dip"
+                android:hint="@string/fragment_create_questionaire_content_hint"
+                android:background="@null"
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
         </LinearLayout>
 
     </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        app:fabSize="normal"
-        android:id="@+id/fragment_create_add_single_question_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_floating_button_margin"
+    <!-- 菜单 -->
+    <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:clickable="true"
-        android:src="@drawable/ic_common_add_floating_button"
-        />
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/fragment_create_questionaire_add_single_question_type_ll"
+            android:visibility="invisible"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <!-- 添加选择题 -->
+            <LinearLayout
+                android:id="@+id/fragment_create_add_choose_question_ll"
+                android:layout_marginRight="@dimen/common_floating_button_margin"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:gravity="end"
+                    android:text="@string/fragment_create_questionaire_add_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fragment_create_add_choose_question_fab"
+                    android:layout_margin="@dimen/common_sub_floating_button_margin"
+                    app:fabSize="mini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/icon_add_choose"
+                    />
+
+            </LinearLayout>
+
+            <!-- 添加问答题 -->
+            <LinearLayout
+                android:id="@+id/fragment_create_add_essay_question_ll"
+                android:layout_marginRight="@dimen/common_floating_button_margin"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:gravity="end"
+                    android:text="@string/fragment_create_questionaire_add_essay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fragment_create_add_essay_question_fab"
+                    android:layout_margin="@dimen/common_sub_floating_button_margin"
+                    app:fabSize="mini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/icon_add_essay"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 添加问题按钮 -->
+        <android.support.design.widget.FloatingActionButton
+            app:fabSize="auto"
+            android:layout_gravity="end"
+            android:id="@+id/fragment_create_add_single_question_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_floating_button_margin"
+            android:clickable="true"
+            android:src="@drawable/icon_common_add_floating_button"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>
